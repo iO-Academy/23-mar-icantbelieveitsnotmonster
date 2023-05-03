@@ -38,18 +38,19 @@ const DetailModal = () => {
                             <div className="modal-body">
                                 <div className="container">
 
-                                    <div className="d-flex flex-row bg-primary text-white py-5 fs-4">
+                                    <div
+                                        className="d-flex flex-sm-column flex-lg-row align-items-start bg-primary text-white py-5 fs-4">
                                         <p className="mx-4"><strong>{data.job_title}</strong></p>
-                                        <p className="bg-success text-white rounded-pill px-3">
+                                        <p className="bg-success text-white rounded-pill px-3 mx-sm-4 mx-lg-0">
                                             <strong>{data.type}</strong>
                                         </p>
                                     </div>
 
                                     <div class="border border-5 border-light p-3">
 
-                                        <div className="row mx-auto" pt-3>
-                                            <img src={data.logo} className="col-2"/>
-                                            <p class="col-3 align-self-center"><strong>{data.company}</strong></p>
+                                        <div className="row mx-auto">
+                                            <div class="col-1 p-0"><img src={data.logo} class="mw-100"/></div>
+                                            <p class="col-11 m-0 align-self-center"><strong>{data.company}</strong></p>
                                         </div>
 
                                         <h2 class="fs-5 pt-2">Key facts:</h2>
@@ -57,7 +58,7 @@ const DetailModal = () => {
                                         <table class="table table-borderless table-sm">
 
                                             <thead>
-                                            <tr>
+                                            <tr className="align-top">
                                                 <td scope="col">Salary:</td>
                                                 <td scope="col">Type:</td>
                                                 <td scope="col">Date posted:</td>
@@ -67,41 +68,34 @@ const DetailModal = () => {
 
                                             <tbody>
                                             <tr>
-                                                <td>£{data.salary ?? "Not specified"}</td>
-                                                <td>{data.type ?? "Not specified"}</td>
-                                                <td>{data.posted}</td>
+                                                <td>£{data.salary ? data.salary.toLocaleString() : "Not specified"}</td>
+                                                <td>{data.type ? data.type.replace(' ', '\u00A0') : "Not specified"}</td>
+                                                <td>{new Date(data.posted).toLocaleDateString()}</td>
                                                 <td>
-                                                    <div className="d-flex align-items-center column-gap-4 fs-6">
-                                                        <strong>
-                                                            {
-                                                                skills && skills.map((element, i) =>
-                                                                    <span
-                                                                        className="rounded-pill bg-info text-white py-0 px-1"
-                                                                        key={i}>{element.skill} </span>
-                                                                )
-                                                            }</strong></div>
+                                                    {skills && skills.map((element, i) =>
+                                                        <>
+                                                            <span
+                                                                className="rounded bg-info text-white py-0 px-1 fw-bold"
+                                                                key={i}>{element.skill}
+                                                            </span>
+                                                            <span> </span>
+                                                        </>
+                                                    )}
                                                 </td>
                                             </tr>
                                             </tbody>
-
                                         </table>
-
                                         <h2>Job Description:</h2>
                                         <p>{data.job_description}</p>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )
 }
 
 export default DetailModal
-
-
-
