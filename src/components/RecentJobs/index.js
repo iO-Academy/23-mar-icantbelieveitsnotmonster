@@ -1,46 +1,19 @@
 import { useEffect, useState } from "react"
 import { renderToString } from "react-dom/server"
 
-const RecentJobs = () => {
-    const [recentJobs, setRecentJobs] = useState([])
+const RecentJobs = ({getJobs, setGetJobs, URL, setURL}) => {
 
-    useEffect(() => {
-        fetch("http://localhost:8080/jobs/recent")
-            .then((res) => res.json())
-            .then((res) => {
-                setRecentJobs(res)
-            })
-    }, [])
+    // useEffect(() => {
+    //     const thead = document.querySelector("thead")
+    //
+    //     thead.innerHTML = createTableHeader()
+    //
+    //     const tbody = document.querySelector("tbody")
+    //     if (tbody) {
+    //         tbody.innerHTML = createTableRows(recentJobs).join("")
+    //     }
+    // }, [recentJobs])
 
-    useEffect(() => {
-        const thead = document.querySelector("thead")
-
-        thead.innerHTML = createTableHeader()
-
-        const tbody = document.querySelector("tbody")
-        if (tbody) {
-            tbody.innerHTML = createTableRows(recentJobs).join("")
-        }
-    }, [recentJobs])
-
-    const createTableHeader = () => {
-        return renderToString(
-            <tr>
-                <th className="col-5" colSpan="2" scope="col">
-                    Job Title/ Company
-                </th>
-                <th className="col-2" scope="col">
-                    Type
-                </th>
-                <th className="col-2" scope="col">
-                    Salary
-                </th>
-                <th className="col-3" scope="col">
-                    Skills
-                </th>
-            </tr>
-        )
-    }
 
     const createTableRows = (data) => {
         if (!data) {
@@ -76,7 +49,22 @@ const RecentJobs = () => {
         <div className="container px-5">
             <h3 className='fw-bold py-3'>Most recent jobs</h3>
             <table className="table table-dark table-striped">
+
                 <thead>
+                <tr>
+                    <th className="col-5" colSpan="2" scope="col">
+                        Job Title/ Company
+                    </th>
+                    <th className="col-2" scope="col">
+                        Type
+                    </th>
+                    <th className="col-2" scope="col">
+                        Salary
+                    </th>
+                    <th className="col-3" scope="col">
+                        Skills
+                    </th>
+                </tr>
                 </thead>
                 <tbody></tbody>
             </table>
