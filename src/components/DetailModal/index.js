@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react'
 
 const DetailModal = () => {
 
@@ -101,7 +101,7 @@ const DetailModal = () => {
     )
 }
 
-export default DetailModal;
+export default DetailModal
 
 
 
