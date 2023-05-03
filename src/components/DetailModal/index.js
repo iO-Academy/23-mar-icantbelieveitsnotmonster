@@ -5,7 +5,7 @@ const JobDetail = () => {
     const [data, setData] = useState({})
     const [skills, setSkills] = useState([])
 
-    const jobID = 412
+    const jobID = 398
 
     useEffect(() => {
         fetch('http://localhost:8080/jobs/' + jobID)
@@ -28,8 +28,8 @@ const JobDetail = () => {
                     <p class="mx-4"><strong>{data.job_title}</strong></p>
             <p class="bg-success text-white rounded-pill px-1"><strong>{data.type}</strong></p>
             </div>
-            <div>
-                <img src={data.logo} />
+            <div class="row mx-auto">
+                <img src={data.logo} class="img-thumbnail col-1" />
                 <p><strong>{data.company}</strong></p>
             </div>
 
