@@ -3,8 +3,6 @@ import DetailModal from "./components/DetailModal";
 import Footer from "./components/Footer";
 import RecentJobs from "./components/RecentJobs";
 import Header from "./components/Header";
-import Example from "./components/Example";
-
 const App = () => {
 
     return (
@@ -12,7 +10,6 @@ const App = () => {
             <Header/>
             <RecentJobs/>
             <DetailModal />
-            <Example />
             <Footer />
         </>
     )
