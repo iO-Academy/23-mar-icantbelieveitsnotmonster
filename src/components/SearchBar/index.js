@@ -28,39 +28,55 @@ const SearchBar = ({setURL, URL, setSelectedID, displayJobs, setDisplayJobs, sea
                                 onChange={handleInputChange}
                             ></input>
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="inlineCheckbox1"
-                                value="FullTime"
-                            >
-                            </input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">
-                                Full time
-                            </label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="inlineCheckbox2"
-                                value="PartTime"
-                            ></input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">
-                                Part time
-                            </label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="inlineCheckbox3"
-                                value="Contracts"
-                            ></input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox3">
-                                Contracts
-                            </label>
+                        <div id="searchBarFilters" className="d-flex justify-content-between my-2">
+                            <div id="checkBoxes">
+                                <div className="form-check form-check-inline">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="inlineCheckbox1"
+                                        value="FullTime"
+                                    >
+                                    </input>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox1">
+                                        Full time
+                                    </label>
+                                </div>
+                                <div className="form-check form-check-inline">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="inlineCheckbox2"
+                                        value="PartTime"
+                                    ></input>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox2">
+                                        Part time
+                                    </label>
+                                </div>
+                                <div className="form-check form-check-inline">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="inlineCheckbox3"
+                                        value="Contracts"
+                                    ></input>
+                                    <label className="form-check-label" htmlFor="inlineCheckbox3">
+                                        Contracts
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <span>Popular skills: </span>
+                                <span className="rounded bg-info text-white fw-bold mx-1 p-1 fs-6">
+                                    Skill1
+                                </span>
+                                <span className="rounded bg-info text-white fw-bold mx-1 p-1 fs-6">
+                                    Skill2
+                                </span>
+                                <span className="rounded bg-info text-white fw-bold mx-1 p-1 fs-6">
+                                    Skill3
+                                </span>
+                            </div>
                         </div>
                         <div className="col-sm-1 col-md-1">
                             <button type="submit" className="btn btn-primary">
