@@ -10,7 +10,7 @@ const SearchBar = ({ setURL, URL, setSelectedID }) => {
         e.preventDefault();
         let query = '';
         if (selectedJobType) {
-            query = `type=${selectedJobType}&`;
+            query = `type[]=${selectedJobType}&`;
         }
         setSearched(`${query}search=${URL}`);
     };
