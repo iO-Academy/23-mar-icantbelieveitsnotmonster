@@ -1,19 +1,31 @@
-import './index.css'
-import { useState } from "react";
-import RecentJobs from "../RecentJobs";
+import './index.css';
+import { useState } from 'react';
+import RecentJobs from '../RecentJobs';
 
 const SearchBar = ({ setURL, URL, setSelectedID }) => {
-
     const [searched, setSearched] = useState(false);
+    const [selectedJobType, setSelectedJobType] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSearched(`search=${URL}`);
+        let query = '';
+        if (selectedJobType) {
+            query = `type=${selectedJobType}&`;
+        }
+        setSearched(`${query}search=${URL}`);
     };
 
     const handleInputChange = (e) => {
         setURL(e.target.value);
     };
+
+    const handleJobTypeChange = (e) => {
+        if (e.target.checked) {
+            setSelectedJobType(e.target.value);
+        } else {
+            setSelectedJobType(null);
+        }
+    }
 
     return (
         <>
@@ -28,16 +40,17 @@ const SearchBar = ({ setURL, URL, setSelectedID }) => {
                                 placeholder="Search"
                                 aria-label="Search"
                                 onChange={handleInputChange}
-                            ></input>
+                            />
                         </div>
-
                         <div className="form-check form-check-inline">
                             <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id="inlineCheckbox1"
                                 value="FullTime"
-                            ></input>
+                                checked={selectedJobType === 'FullTime'}
+                                onChange={handleJobTypeChange}
+                            />
                             <label className="form-check-label" htmlFor="inlineCheckbox1">
                                 Full time
                             </label>
@@ -48,7 +61,9 @@ const SearchBar = ({ setURL, URL, setSelectedID }) => {
                                 type="checkbox"
                                 id="inlineCheckbox2"
                                 value="PartTime"
-                            ></input>
+                                checked={selectedJobType === 'PartTime'}
+                                onChange={handleJobTypeChange}
+                            />
                             <label className="form-check-label" htmlFor="inlineCheckbox2">
                                 Part time
                             </label>
@@ -59,7 +74,9 @@ const SearchBar = ({ setURL, URL, setSelectedID }) => {
                                 type="checkbox"
                                 id="inlineCheckbox3"
                                 value="Contracts"
-                            ></input>
+                                checked={selectedJobType === 'Contracts'}
+                                onChange={handleJobTypeChange}
+                            />
                             <label className="form-check-label" htmlFor="inlineCheckbox3">
                                 Contracts
                             </label>
