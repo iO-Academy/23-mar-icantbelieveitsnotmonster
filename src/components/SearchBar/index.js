@@ -14,6 +14,7 @@ const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searc
 
         if (!fullTimeChecked && !partTimeChecked && !contractsChecked){
             setFilterApplied(false)
+            setSearched(searched + " ")
         } else if (fullTimeChecked && !partTimeChecked && !contractsChecked){
             setFilterApplied(true)
             setJobFilter("Full time")
@@ -37,7 +38,6 @@ const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searc
             setJobFilter("Contract")
         }
         setSearched(`search=${URL}`)
-        setSearched(searched + " ")
     }
 
     const handleInputChange = (e) => {
