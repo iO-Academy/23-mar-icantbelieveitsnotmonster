@@ -1,7 +1,35 @@
-const Header = ({setSearched}) => {
+const Header = ({setSearched, setFullTimeChecked, setPartTimeChecked, setContractsChecked}) => {
 
-    const handleNavBarButton = (e) => {
+    const handleAllJobsButton = (e) => {
+        setFullTimeChecked(true);
+        setPartTimeChecked(true);
+        setContractsChecked(true);
         setSearched(e.target.getAttribute("data-query"))
+
+        document.querySelector('input').value = ""
+    }
+    const handleFullTimeButton = (e) => {
+        setFullTimeChecked(true);
+        setPartTimeChecked(false);
+        setContractsChecked(false);
+        setSearched(e.target.getAttribute("data-query"))
+
+        document.querySelector('input').value = ""
+    }
+    const handlePartTimeButton = (e) => {
+        setPartTimeChecked(true);
+        setFullTimeChecked(false);
+        setContractsChecked(false);
+        setSearched(e.target.getAttribute("data-query"))
+
+        document.querySelector('input').value = ""
+    }
+    const handleContractsButton = (e) => {
+        setContractsChecked(true);
+        setFullTimeChecked(false);
+        setPartTimeChecked(false);
+        setSearched(e.target.getAttribute("data-query"))
+
         document.querySelector('input').value = ""
     }
 
@@ -17,16 +45,16 @@ const Header = ({setSearched}) => {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={handleNavBarButton} data-query=" ">All Jobs</a>
+                            <a className="nav-link" href="#" onClick={handleAllJobsButton} data-query=" ">All Jobs</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={handleNavBarButton} data-query="type[]=Full time">Full time</a>
+                            <a className="nav-link" href="#" onClick={handleFullTimeButton} data-query="type[]=Full time">Full time</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={handleNavBarButton} data-query="type[]=Part time">Part time</a>
+                            <a className="nav-link" href="#" onClick={handlePartTimeButton} data-query="type[]=Part time">Part time</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={handleNavBarButton} data-query="type[]=Contract">Contract</a>
+                            <a className="nav-link" href="#" onClick={handleContractsButton} data-query="type[]=Contract">Contract</a>
                         </li>
                     </ul>
                     <button className="btn btn-outline-success" type="submit">Post a job</button>

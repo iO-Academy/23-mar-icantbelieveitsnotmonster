@@ -15,6 +15,9 @@ const App = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [searched, setSearched] = useState("")
+    const [fullTimeChecked, setFullTimeChecked] = useState(false)
+    const [partTimeChecked, setPartTimeChecked] = useState(false)
+    const [contractsChecked, setContractsChecked] = useState(false)
 
     useEffect(() => {
         let url = "http://localhost:8080/jobs/recent"
@@ -46,14 +49,25 @@ const App = () => {
 
     return (
         <>
-            <Header setSearched={setSearched}/>
-            <SearchBar setURL={setURL}
-                       URL={URL}
-                       setSelectedID={setSelectedID}
-                       searched={searched}
-                       setSearched={setSearched}
-                       displayJobs={displayJobs}
-                       setDisplayJobs={setDisplayJobs}
+            <Header setSearched={setSearched}
+                    setFullTimeChecked={setFullTimeChecked}
+                    setPartTimeChecked={setPartTimeChecked}
+                    setContractsChecked={setContractsChecked}
+            />
+            <SearchBar
+                setURL={setURL}
+                URL={URL}
+                setSelectedID={setSelectedID}
+                searched={searched}
+                setSearched={setSearched}
+                displayJobs={displayJobs}
+                setDisplayJobs={setDisplayJobs}
+                fullTimeChecked={fullTimeChecked}
+                setFullTimeChecked={setFullTimeChecked}
+                partTimeChecked={partTimeChecked}
+                setPartTimeChecked={setPartTimeChecked}
+                contractsChecked={contractsChecked}
+                setContractsChecked={setContractsChecked}
             />
             <DetailModal data={data}
                          skills={skills}
