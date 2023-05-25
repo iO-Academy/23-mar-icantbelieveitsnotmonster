@@ -50,7 +50,7 @@ const DisplayJobs = ({setSelectedID,  searched, setSearched, displayJobs, jobFil
                             <tr key={key}>
                                 <td scope="row">
                                     {window.innerWidth > 768 && (
-                                        <img className="block" width="100" src={job.logo} alt="logo" />
+                                        <img className="block" width="100" src={job.logo} alt={job.company + " logo"} />
                                     )}
                                 </td>
                                 <td>

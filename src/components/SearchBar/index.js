@@ -2,11 +2,11 @@ import "./index.css"
 import DisplayJobs from "../DisplayJobs"
 import React, { useState } from "react"
 
-const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searched, setSearched }) => {
+const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searched, setSearched,
+                    fullTimeChecked, setFullTimeChecked, partTimeChecked, setPartTimeChecked,
+                    contractsChecked, setContractsChecked}) => {
 
-    const [fullTimeChecked, setFullTimeChecked] = useState(false)
-    const [partTimeChecked, setPartTimeChecked] = useState(false)
-    const [contractsChecked, setContractsChecked] = useState(false)
+
     const [jobFilter, setJobFilter] = useState("")
     const [filterApplied, setFilterApplied] = useState(false)
     const handleSubmit = (e) => {
@@ -75,13 +75,13 @@ const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searc
                             <input
                                 className="form-check-input"
                                 type="checkbox"
-                                id="inlineCheckbox1"
+                                id="fullTimeCheckbox"
                                 value="Full Time"
                                 checked={fullTimeChecked}
                                 onChange={handleFullTimeChange}
                             >
                             </input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">
+                            <label className="form-check-label" htmlFor="fullTimeCheckbox">
                                 Full time
                             </label>
                         </div>
@@ -89,12 +89,12 @@ const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searc
                             <input
                                 className="form-check-input"
                                 type="checkbox"
-                                id="inlineCheckbox2"
+                                id="partTimeCheckbox"
                                 value="Part Time"
                                 checked={partTimeChecked}
                                 onChange={handlePartTimeChange}
                             ></input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox2">
+                            <label className="form-check-label" htmlFor="partTimeCheckbox">
                                 Part time
                             </label>
                         </div>
@@ -102,12 +102,12 @@ const Search = ({ setURL, URL, setSelectedID, displayJobs, setDisplayJobs, searc
                             <input
                                 className="form-check-input"
                                 type="checkbox"
-                                id="inlineCheckbox3"
+                                id="contractsCheckbox"
                                 value="Contracts"
                                 checked={contractsChecked}
                                 onChange={handleContractsChange}
                             ></input>
-                            <label className="form-check-label" htmlFor="inlineCheckbox3">
+                            <label className="form-check-label" htmlFor="contractsCheckbox">
                                 Contracts
                             </label>
                         </div>
