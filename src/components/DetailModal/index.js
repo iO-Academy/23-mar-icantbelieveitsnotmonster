@@ -28,7 +28,7 @@ const DetailModal = ({data, skills, loading, error}) => {
                                 <div className="border border-5 border-light p-3">
 
                                     <div className="row mx-auto">
-                                        <div className="col-1 p-0"><img src={data.logo} className="mw-100" alt="Company logo"/></div>
+                                        <div className="col-1 p-0"><img src={data.logo} className="mw-100" alt={data.company + " logo"}/></div>
                                         <p className="col-11 m-0 align-self-center fw-bold">{data.company}</p>
                                     </div>
 
